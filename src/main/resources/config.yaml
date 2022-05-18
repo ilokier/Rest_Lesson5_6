@@ -1,0 +1,33 @@
+environment:
+  test:
+    envName: test
+    baseUrl: https://samples.openweathermap.org
+    weatherUrl: /data/2.5/weather
+    token: b1b15e88fa797225412429c1c50c122a1
+    q: q
+    city: London,uk
+    cityName: London
+    countryCode: GB
+    temperature: 280.32F
+    name: Ilona
+    age: 25
+    responseTime: 5000
+    statusCode: 200
+    active: true
+
+  test2:
+    envName: test
+    baseUrl: https://samples.openweathermap.org
+    weatherUrl: /data/2.5/weather
+    token: b1b15e88fa797225412429c1c50c122a1
+    q: q
+    city: London,uk
+    cityName: London
+    countryCode: GB
+    temperature: 280.32
+    #header: name, Ilona
+    name: Ilona
+    age: 25
+    responseTime: 5000
+    statusCode: 200
+    active: false
