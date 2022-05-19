@@ -21,26 +21,28 @@ public class BaseTest {
     static void beforeAll() {
         appProperties = AppProperties.getInstance();
     }
-
-    @BeforeMethod
-    public void setup() {
-        requestSpecification =
-                given()
-                        .log()
-                        .all()
-                        .baseUri(getProperty("baseUrl"))
-                        .basePath(getProperty("weatherUrl"))
-                        .header("name", getProperty("name"))
-                        .header("age", getProperty("age"))
-                        .param("q", getProperty("city"))
-                        .param("appid", "b1b15e88fa797225412429c1c50c122a1");
-        responseSpecification = RestAssured.expect();
-        responseSpecification
-                .log()
-                .all()
-                .time(Matchers.lessThan(parseLong(getProperty("responseTime"))))
-                .contentType(ContentType.JSON)
-                .statusCode(parseInt(getProperty("statusCode")))
-        ;
-    }
+   public RequestSpecification getRequestSpecyfiaction(String basepath){
+       requestSpecification =
+               given()
+                       .log()
+                       .all()
+                       .baseUri(getProperty("baseUrl"))
+                       .basePath(getProperty("weatherUrl"))
+                       .header("name", getProperty("name"))
+                       .header("age", getProperty("age"))
+                       .param("q", getProperty("city"))
+                       .param("appid", getProperty("token"));
+       return requestSpecification;
+   }
+   public ResponseSpecification getResponseSpecyfication(int statuscode){
+       responseSpecification = RestAssured.expect();
+       responseSpecification
+               .log()
+               .all()
+               .time(Matchers.lessThan(parseLong(getProperty("responseTime"))))
+               .contentType(ContentType.JSON)
+               .statusCode(statuscode)
+       ;
+       return responseSpecification;
+   }
 }

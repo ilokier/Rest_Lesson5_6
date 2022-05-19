@@ -12,7 +12,7 @@ environment:
     name: Ilona
     age: 25
     responseTime: 5000
-    statusCode: 200
+    statusCode200: 200
     active: true
 
   test2:
@@ -29,5 +29,5 @@ environment:
     name: Ilona
     age: 25
     responseTime: 5000
-    statusCode: 200
+    statusCode200: 200
     active: false

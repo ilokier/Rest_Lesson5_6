@@ -7,12 +7,12 @@ import static org.hamcrest.Matchers.is;
 
 public class WeatherTest extends BaseTest {
     @Test
-    public void shouldGiveLondonWeather() {
-        given(requestSpecification)
+    public void shouldGiveProperCityWeather2() {
+        given(getRequestSpecyfiaction(getProperty("weatherUrl")))
                 .when()
                 .get()
-        .then()
-                .spec(responseSpecification)
+                .then()
+                .spec(getResponseSpecyfication(Integer.parseInt(getProperty("statusCode200"))))
                 .body("main.temp", is(parseFloat(getProperty("temperature"))))
                 .body("name", is(getProperty("cityName")))
                 .body("sys.country", is(getProperty("countryCode")))
