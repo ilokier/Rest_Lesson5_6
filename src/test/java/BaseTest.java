@@ -14,20 +14,17 @@ import static java.lang.System.getProperty;
 
 public class BaseTest {
     private static AppProperties appProperties;
-    RequestSpecification requestSpecification;
-    ResponseSpecification responseSpecification;
-
     @BeforeSuite
     static void beforeAll() {
         appProperties = AppProperties.getInstance();
     }
-   public RequestSpecification getRequestSpecyfiaction(String basepath){
-       requestSpecification =
+   public RequestSpecification getRequestSpecyfiaction(String basePath){
+       RequestSpecification requestSpecification =
                given()
                        .log()
                        .all()
                        .baseUri(getProperty("baseUrl"))
-                       .basePath(getProperty("weatherUrl"))
+                       .basePath(basePath)
                        .header("name", getProperty("name"))
                        .header("age", getProperty("age"))
                        .param("q", getProperty("city"))
@@ -35,14 +32,14 @@ public class BaseTest {
        return requestSpecification;
    }
    public ResponseSpecification getResponseSpecyfication(int statuscode){
-       responseSpecification = RestAssured.expect();
+       ResponseSpecification responseSpecification = RestAssured.expect();
        responseSpecification
                .log()
                .all()
                .time(Matchers.lessThan(parseLong(getProperty("responseTime"))))
                .contentType(ContentType.JSON)
-               .statusCode(statuscode)
-       ;
+               .statusCode(statuscode);
        return responseSpecification;
    }
+
 }

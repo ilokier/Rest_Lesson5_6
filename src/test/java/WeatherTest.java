@@ -9,13 +9,13 @@ public class WeatherTest extends BaseTest {
     @Test
     public void shouldGiveProperCityWeather2() {
         given(getRequestSpecyfiaction(getProperty("weatherUrl")))
-                .when()
+        .when()
                 .get()
-                .then()
+        .then()
                 .spec(getResponseSpecyfication(Integer.parseInt(getProperty("statusCode200"))))
                 .body("main.temp", is(parseFloat(getProperty("temperature"))))
                 .body("name", is(getProperty("cityName")))
-                .body("sys.country", is(getProperty("countryCode")))
-        ;
+                .body("sys.country", is(getProperty("countryCode")));
+
     }
 }
