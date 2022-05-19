@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import static io.restassured.RestAssured.given;
+import static java.lang.Integer.TYPE;
 import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
 import static java.lang.System.getProperty;

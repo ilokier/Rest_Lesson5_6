@@ -12,7 +12,7 @@ environment:
     name: Ilona
     age: 25
     responseTime: 5000
-    statusCode200: 200
+    successCodeForGet: 200
     active: true
 
   test2:

@@ -29,7 +29,7 @@ public class AppProperties {
                 foundActiveEnvironment = true;
                 Map<String, Object> environmentProperties = environmentModel.getProperties();
                 for (Map.Entry entry : environmentProperties.entrySet()) {
-                    System.setProperty(entry.getKey().toString(), entry.getValue().toString());
+                    System.setProperty(entry.getKey().toString(), (entry.getValue().toString()));
                     log.info("Loaded env properties: {} = {}", entry.getKey().toString(), entry.getValue().toString());
                 }
                 break;
